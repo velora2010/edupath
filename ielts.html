@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduPath | IELTS</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+
+:root {
+    --ink: #172321;
+    --muted: #60706c;
+    --paper: #f5f3ed;
+    --cream: #fffdf8;
+    --green: #1f5b4e;
+    --green-dark: #16473d;
+    --mint: #dcebe1;
+    --coral: #ed765d;
+    --line: #d8ded8;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    max-width: 1180px;
+    margin: auto;
+
+    padding: 22px 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--green);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--coral);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: .88rem;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+.dashboard-btn {
+    background: var(--green);
+    color: white !important;
+
+    padding: 9px 14px;
+
+    border-radius: 7px;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    max-width: 1180px;
+    margin: auto;
+
+    padding: 55px 32px 80px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    display: grid;
+
+    grid-template-columns: 1.15fr .85fr;
+
+    gap: 60px;
+
+    align-items: center;
+
+    padding-bottom: 55px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+    color: var(--coral);
+
+    font-size: .75rem;
+
+    font-weight: 700;
+
+    letter-spacing: .14em;
+
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: "Fraunces", serif;
+
+    font-size: clamp(3.5rem, 7vw, 6rem);
+
+    line-height: .94;
+
+    letter-spacing: -.055em;
+
+    margin: 15px 0 20px;
+}
+
+h1 span {
+    color: var(--green);
+}
+
+.hero-text {
+    max-width: 500px;
+
+    color: var(--muted);
+
+    line-height: 1.65;
+}
+
+
+/* =========================
+   SCORE CARD
+========================= */
+
+.score-card {
+    background: var(--green);
+
+    color: white;
+
+    padding: 32px;
+
+    min-height: 250px;
+
+    border-radius: 4px 65px 4px 65px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.score-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    right: -120px;
+    top: -120px;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    border-radius: 50%;
+}
+
+.score-label {
+    color: #b8d6c5;
+
+    font-size: .72rem;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+}
+
+.overall-score {
+    font-family: "Fraunces", serif;
+
+    font-size: 4.5rem;
+
+    margin: 15px 0 5px;
+}
+
+.score-card p {
+    color: #c9ddd4;
+
+    margin: 0;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-top: 45px;
+}
+
+.section-heading h2 {
+    font-family: "Fraunces", serif;
+
+    font-size: 2.5rem;
+
+    letter-spacing: -.05em;
+
+    margin: 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+
+    font-size: .85rem;
+
+    margin: 0;
+}
+
+
+.skills {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+    margin-top: 22px;
+}
+
+
+/* =========================
+   SKILL CARD
+========================= */
+
+.skill {
+    background: var(--cream);
+
+    border: 1px solid var(--line);
+
+    padding: 27px;
+
+    transition: .2s;
+}
+
+.skill:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--coral);
+}
+
+.skill-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: start;
+}
+
+.skill-icon {
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: var(--mint);
+
+    border-radius: 14px;
+
+    font-size: 1.5rem;
+}
+
+.skill-number {
+    color: var(--coral);
+
+    font-size: .72rem;
+
+    font-weight: 700;
+
+    letter-spacing: .1em;
+}
+
+.skill h3 {
+    margin: 22px 0 8px;
+
+    font-size: 1.3rem;
+}
+
+.skill p {
+    color: var(--muted);
+
+    font-size: .88rem;
+
+    line-height: 1.5;
+
+    min-height: 42px;
+}
+
+
+/* PROGRESS */
+
+.progress-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    font-size: .78rem;
+}
+
+.progress-info span:last-child {
+    color: var(--green);
+
+    font-weight: 700;
+}
+
+.progress {
+    height: 9px;
+
+    margin-top: 8px;
+
+    background: var(--mint);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+
+    background: var(--green);
+
+    border-radius: inherit;
+}
+
+
+/* PRACTICE BUTTON */
+
+.practice {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: var(--green);
+
+    font-size: .88rem;
+
+    font-weight: 700;
+}
+
+.practice:hover {
+    color: var(--coral);
+}
+
+
+/* =========================
+   STUDY PLAN
+========================= */
+
+.study-plan {
+    margin-top: 50px;
+}
+
+.study-plan h2 {
+    font-family: "Fraunces", serif;
+
+    font-size: 2.5rem;
+
+    letter-spacing: -.05em;
+
+    margin: 0 0 20px;
+}
+
+.plan {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+}
+
+.plan-item {
+    background: white;
+
+    border: 1px solid var(--line);
+
+    padding: 23px;
+
+    border-radius: 12px;
+}
+
+.plan-item strong {
+    display: block;
+
+    color: var(--green);
+
+    margin-bottom: 8px;
+}
+
+.plan-item p {
+    color: var(--muted);
+
+    font-size: .85rem;
+
+    line-height: 1.5;
+
+    margin: 0;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding: 25px 32px 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-size: .8rem;
+}
+
+.status {
+    color: var(--green);
+}
+
+.status::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: #5baa71;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:760px) {
+
+    nav {
+        padding: 20px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: .72rem;
+    }
+
+    main {
+        padding: 35px 20px 60px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+
+    .plan {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading p {
+        margin-top: 8px;
+    }
+
+    footer {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAV -->
+
+<nav>
+
+<a href="index.html" class="logo">
+Edu<span>Path</span>
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="sat.html">
+SAT
+</a>
+
+<a href="dashboard.html" class="dashboard-btn">
+Dashboard
+</a>
+
+</div>
+
+</nav>
+
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+
+<div class="eyebrow">
+English preparation
+</div>
+
+<h1>
+Prepare for <span>IELTS.</span>
+</h1>
+
+<p class="hero-text">
+
+Build the four skills you need for a strong IELTS
+performance. Practice consistently, track your
+progress and move closer to your target band.
+
+</p>
+
+</div>
+
+
+<div class="score-card">
+
+<div class="score-label">
+Current overall estimate
+</div>
+
+<div
+class="overall-score"
+id="overallScore">
+
+6.5
+
+</div>
+
+<p>
+Target: Band 7+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section>
+
+<div class="section-heading">
+
+<h2>
+Four skills.
+</h2>
+
+<p>
+Build them one step at a time.
+</p>
+
+</div>
+
+
+<div class="skills">
+
+
+<!-- READING -->
+
+<article class="skill">
+
+<div class="skill-top">
+
+<div class="skill-icon">
+📖
+</div>
+
+<div class="skill-number">
+01 / READING
+</div>
+
+</div>
+
+<h3>
+Reading
+</h3>
+
+<p>
+Improve speed, vocabulary and your ability
+to find answers in academic texts.
+</p>
+
+
+<div class="progress-info">
+
+<span>
+Progress
+</span>
+
+<span>
+70%
+</span>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-fill"
+style="width:70%">
+</div>
+
+</div>
+
+
+<a
+href="reading.html"
+class="practice">
+
+Practice Reading →
+
+</a>
+
+</article>
+
+
+<!-- LISTENING -->
+
+<article class="skill">
+
+<div class="skill-top">
+
+<div class="skill-icon">
+🎧
+</div>
+
+<div class="skill-number">
+02 / LISTENING
+</div>
+
+</div>
+
+<h3>
+Listening
+</h3>
+
+<p>
+Train your listening accuracy and learn to
+follow different speakers and accents.
+</p>
+
+
+<div class="progress-info">
+
+<span>
+Progress
+</span>
+
+<span>
+65%
+</span>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-fill"
+style="width:65%">
+</div>
+
+</div>
+
+
+<a
+href="#"
+class="practice"
+onclick="comingSoon(event, 'Listening')">
+
+Practice Listening →
+
+</a>
+
+</article>
+
+
+<!-- WRITING -->
+
+<article class="skill">
+
+<div class="skill-top">
+
+<div class="skill-icon">
+✍️
+</div>
+
+<div class="skill-number">
+03 / WRITING
+</div>
+
+</div>
+
+<h3>
+Writing
+</h3>
+
+<p>
+Develop clear ideas, stronger vocabulary and
+better Task 1 and Task 2 structure.
+</p>
+
+
+<div class="progress-info">
+
+<span>
+Progress
+</span>
+
+<span>
+55%
+</span>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-fill"
+style="width:55%">
+</div>
+
+</div>
+
+
+<a
+href="#"
+class="practice"
+onclick="comingSoon(event, 'Writing')">
+
+Practice Writing →
+
+</a>
+
+</article>
+
+
+<!-- SPEAKING -->
+
+<article class="skill">
+
+<div class="skill-top">
+
+<div class="skill-icon">
+🗣️
+</div>
+
+<div class="skill-number">
+04 / SPEAKING
+</div>
+
+</div>
+
+<h3>
+Speaking
+</h3>
+
+<p>
+Practice fluency, pronunciation and
+confidence for all three speaking parts.
+</p>
+
+
+<div class="progress-info">
+
+<span>
+Progress
+</span>
+
+<span>
+60%
+</span>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-fill"
+style="width:60%">
+</div>
+
+</div>
+
+
+<a
+href="#"
+class="practice"
+onclick="comingSoon(event, 'Speaking')">
+
+Practice Speaking →
+
+</a>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- STUDY PLAN -->
+
+<section class="study-plan">
+
+<h2>
+Your study rhythm.
+</h2>
+
+
+<div class="plan">
+
+
+<div class="plan-item">
+
+<strong>
+Monday
+</strong>
+
+<p>
+Reading practice + vocabulary.
+</p>
+
+</div>
+
+
+<div class="plan-item">
+
+<strong>
+Wednesday
+</strong>
+
+<p>
+Listening practice + speaking.
+</p>
+
+</div>
+
+
+<div class="plan-item">
+
+<strong>
+Friday
+</strong>
+
+<p>
+Writing practice + error review.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<span>
+© 2026 EduPath
+</span>
+
+<span class="status">
+Your future is in progress
+</span>
+
+</footer>
+
+
+<script>
+
+function comingSoon(event, skill) {
+
+event.preventDefault();
+
+alert(
+skill +
+" practice will be added next. 🚀"
+);
+
+}
+
+</script>
+
+
+</body>
+</html>

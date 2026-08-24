@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduPath | SAT Practice</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+
+:root {
+    --green: #1f5b4e;
+    --green-dark: #16473d;
+    --coral: #ed765d;
+    --mint: #dcebe1;
+    --paper: #f5f3ed;
+    --cream: #fffdf8;
+    --ink: #172321;
+    --muted: #60706c;
+    --line: #d8ded8;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+}
+
+
+/* NAVBAR */
+
+nav {
+    height: 75px;
+
+    background: var(--white);
+
+    border-bottom: 1px solid var(--line);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+}
+
+.logo {
+    color: var(--green);
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--coral);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .85rem;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+
+/* MAIN */
+
+.container {
+    width: min(850px, 92%);
+    margin: auto;
+    padding: 45px 0 70px;
+}
+
+
+/* HEADER */
+
+.test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.eyebrow {
+    color: var(--coral);
+
+    font-size: .72rem;
+
+    font-weight: 700;
+
+    letter-spacing: .14em;
+}
+
+h1 {
+    font-family: "Fraunces", serif;
+
+    font-size: 2.6rem;
+
+    letter-spacing: -.05em;
+
+    margin: 8px 0 0;
+}
+
+.timer {
+    background: var(--green);
+
+    color: white;
+
+    padding: 12px 17px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+}
+
+
+/* PROGRESS */
+
+.progress-area {
+    margin-bottom: 25px;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-size: .8rem;
+
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 9px;
+
+    background: var(--mint);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+
+    width: 2.5%;
+
+    background: var(--green);
+
+    transition: width .3s;
+}
+
+
+/* QUESTION */
+
+.question-card {
+    background: var(--cream);
+
+    border: 1px solid var(--line);
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    box-shadow: 0 15px 40px rgba(23,35,33,.06);
+}
+
+.question-number {
+    color: var(--coral);
+
+    font-size: .78rem;
+
+    font-weight: 700;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+}
+
+#question {
+    font-family: "Fraunces", serif;
+
+    font-size: 1.8rem;
+
+    line-height: 1.3;
+
+    margin: 15px 0 28px;
+}
+
+
+/* ANSWERS */
+
+#answers {
+    display: grid;
+
+    gap: 12px;
+}
+
+.answer {
+    width: 100%;
+
+    padding: 17px 18px;
+
+    background: var(--white);
+
+    border: 1px solid var(--line);
+
+    border-radius: 10px;
+
+    color: var(--ink);
+
+    font-family: inherit;
+
+    font-size: .95rem;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.answer:hover {
+    border-color: var(--green);
+
+    background: var(--mint);
+
+    transform: translateX(3px);
+}
+
+.answer.correct {
+    background: var(--green);
+
+    border-color: var(--green);
+
+    color: white;
+}
+
+.answer.wrong {
+    background: var(--coral);
+
+    border-color: var(--coral);
+
+    color: white;
+}
+
+
+/* RESULT */
+
+#result {
+    min-height: 25px;
+
+    margin: 20px 0 0;
+
+    font-weight: 700;
+}
+
+
+/* NEXT */
+
+.next-area {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 20px;
+}
+
+#next {
+    border: 0;
+
+    border-radius: 9px;
+
+    padding: 13px 22px;
+
+    background: var(--green);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+#next:hover {
+    background: var(--green-dark);
+}
+
+#next:disabled {
+    background: #aab5b0;
+
+    cursor: not-allowed;
+}
+
+
+/* FINAL */
+
+.final-card {
+    text-align: center;
+}
+
+.final-score {
+    font-family: "Fraunces", serif;
+
+    font-size: 4.5rem;
+
+    color: var(--green);
+
+    margin: 15px 0;
+}
+
+.final-message {
+    color: var(--muted);
+
+    line-height: 1.6;
+}
+
+.restart {
+    margin-top: 25px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    padding: 14px 22px;
+
+    background: var(--green);
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.dashboard-btn {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 13px 20px;
+
+    border: 1px solid var(--green);
+
+    border-radius: 9px;
+
+    color: var(--green);
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    nav {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: .72rem;
+    }
+
+    .container {
+        padding-top: 30px;
+    }
+
+    .test-header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .question-card {
+        padding: 23px;
+    }
+
+    #question {
+        font-size: 1.45rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<a href="index.html" class="logo">
+Edu<span>Path</span>
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">Home</a>
+
+<a href="ielts.html">IELTS</a>
+
+<a href="dashboard.html">Dashboard</a>
+
+</div>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- HEADER -->
+
+<div class="test-header">
+
+<div>
+
+<div class="eyebrow">
+SAT PRACTICE
+</div>
+
+<h1>
+SAT Math Challenge
+</h1>
+
+</div>
+
+
+<div class="timer" id="timer">
+20:00
+</div>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-area">
+
+<div class="progress-text">
+
+<span id="number">
+Question 1 / 40
+</span>
+
+<span id="percent">
+2.5%
+</span>
+
+</div>
+
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progress">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUESTION -->
+
+<div class="question-card" id="questionCard">
+
+<div
+class="question-number"
+id="questionLabel">
+QUESTION 01
+</div>
+
+
+<div id="question">
+Loading...
+</div>
+
+
+<div id="answers">
+</div>
+
+
+<p id="result"></p>
+
+
+<div class="next-area">
+
+<button
+id="next"
+disabled>
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+
+
+</main>
+
+
+<script>
+
+
+/* ==========================
+   QUESTIONS
+========================== */
+
+const questions = [
+
+["If 2x + 5 = 15, what is x?", ["3","5","7","10"], 1],
+
+["What is 12 × 5?", ["50","55","60","65"], 2],
+
+["What is 15% of 200?", ["15","20","30","40"], 2],
+
+["If 3x = 24, what is x?", ["6","8","9","12"], 1],
+
+["What is the slope of y = 4x + 7?", ["4","7","-4","-7"], 0],
+
+["If x + 8 = 20, what is x?", ["10","11","12","13"], 2],
+
+["What is 25% of 80?", ["15","20","25","30"], 1],
+
+["What is the area of a rectangle with length 9 and width 4?", ["13","26","36","45"], 2],
+
+["If x² = 49 and x > 0, what is x?", ["-7","0","7","49"], 2],
+
+["What is 3² + 4²?", ["12","18","25","49"], 2],
+
+["If 5x - 10 = 20, what is x?", ["4","5","6","8"], 2],
+
+["What is the average of 6, 8, and 10?", ["7","8","9","10"], 1],
+
+["A $50 item is discounted by 20%. What is the new price?", ["$30","$35","$40","$45"], 2],
+
+["What is the perimeter of a square with side length 7?", ["14","21","28","49"], 2],
+
+["If y = 2x + 3 and x = 4, what is y?", ["7","9","11","12"], 2],
+
+["What is 0.25 × 100?", ["2.5","20","25","250"], 2],
+
+["If 4x + 2 = 18, what is x?", ["3","4","5","6"], 1],
+
+["What is the positive solution of x² - 16 = 0?", ["2","4","8","16"], 1],
+
+["A triangle has angles 50° and 60°. What is the third angle?", ["60°","70°","80°","90°"], 1],
+
+["What is 7 × 8?", ["48","54","56","64"], 2],
+
+["If x/5 = 6, what is x?", ["11","25","30","35"], 2],
+
+["What is 2³?", ["6","8","9","12"], 1],
+
+["If 10% of a number is 12, what is the number?", ["60","100","120","150"], 2],
+
+["What is the circumference of a circle with radius 5?", ["5π","10π","15π","25π"], 1],
+
+["If x + y = 10 and x = 6, what is y?", ["2","3","4","5"], 2],
+
+["What is 40% of 150?", ["40","50","60","75"], 2],
+
+["What is the slope between (1,2) and (3,6)?", ["1","2","3","4"], 1],
+
+["If 2(x + 3) = 18, what is x?", ["5","6","7","9"], 0],
+
+["What is √81?", ["7","8","9","10"], 2],
+
+["A number increased by 5 is 17. What is the number?", ["10","11","12","13"], 2],
+
+["What is the area of a triangle with base 10 and height 6?", ["20","30","40","60"], 1],
+
+["What is the sum of the solutions of x² - 5x + 6 = 0?", ["3","5","6","11"], 1],
+
+["What is 3/4 as a percentage?", ["25%","50%","75%","80%"], 2],
+
+["If 6x = 42, what is x?", ["6","7","8","9"], 1],
+
+["What is the median of 3, 7, 9, 12, 15?", ["7","9","10","12"], 1],
+
+["If f(x) = 3x - 2, what is f(5)?", ["10","12","13","15"], 2],
+
+["A price of $80 increases by 25%. What is the new price?", ["$90","$95","$100","$105"], 2],
+
+["What is the positive value of x if x² = 121?", ["9","10","11","12"], 2],
+
+["If 3x + 4 = 2x + 10, what is x?", ["4","5","6","7"], 2],
+
+["What is the area of a circle with radius 3?", ["3π","6π","9π","12π"], 2]
+
+];
+
+
+let current = 0;
+
+let score = 0;
+
+let answered = false;
+
+let timeLeft = 20 * 60;
+
+let timerInterval;
+
+
+/* ELEMENTS */
+
+const question =
+document.getElementById("question");
+
+const answers =
+document.getElementById("answers");
+
+const number =
+document.getElementById("number");
+
+const label =
+document.getElementById("questionLabel");
+
+const result =
+document.getElementById("result");
+
+const next =
+document.getElementById("next");
+
+const progress =
+document.getElementById("progress");
+
+const percent =
+document.getElementById("percent");
+
+const timer =
+document.getElementById("timer");
+
+
+/* ==========================
+   SHOW QUESTION
+========================== */
+
+function showQuestion() {
+
+    answered = false;
+
+    next.disabled = true;
+
+    result.textContent = "";
+
+    const q = questions[current];
+
+    number.textContent =
+        `Question ${current + 1} / ${questions.length}`;
+
+    label.textContent =
+        `QUESTION ${String(current + 1).padStart(2,"0")}`;
+
+    question.textContent = q[0];
+
+    answers.innerHTML = "";
+
+    const percentage =
+        ((current + 1) / questions.length) * 100;
+
+    progress.style.width =
+        percentage + "%";
+
+    percent.textContent =
+        Math.round(percentage) + "%";
+
+
+    q[1].forEach((answer, index) => {
+
+        const button =
+        document.createElement("button");
+
+        button.className = "answer";
+
+        button.textContent =
+            String.fromCharCode(65 + index)
+            + ") "
+            + answer;
+
+
+        button.onclick = () => {
+
+            if(answered) return;
+
+            answered = true;
+
+            const correct =
+                q[2];
+
+
+            if(index === correct) {
+
+                score++;
+
+                button.classList.add("correct");
+
+                result.textContent =
+                    "✅ Correct!";
+
+            } else {
+
+                button.classList.add("wrong");
+
+                answers.children[correct]
+                    .classList.add("correct");
+
+                result.textContent =
+                    "❌ Incorrect. The correct answer is "
+                    + String.fromCharCode(65 + correct)
+                    + ".";
+
+            }
+
+            next.disabled = false;
+
+        };
+
+
+        answers.appendChild(button);
+
+    });
+
+}
+
+
+/* ==========================
+   NEXT QUESTION
+========================== */
+
+next.onclick = () => {
+
+    current++;
+
+    if(current < questions.length) {
+
+        showQuestion();
+
+    } else {
+
+        finishTest();
+
+    }
+
+};
+
+
+/* ==========================
+   FINISH
+========================== */
+
+function finishTest() {
+
+    clearInterval(timerInterval);
+
+    const percentage =
+        Math.round(score / questions.length * 100);
+
+
+    localStorage.setItem(
+        "edupath-sat-score",
+        score
+    );
+
+    localStorage.setItem(
+        "edupath-sat-percentage",
+        percentage
+    );
+
+
+    document.getElementById("questionCard")
+        .innerHTML = `
+
+        <div class="final-card">
+
+            <div class="question-number">
+                TEST COMPLETE
+            </div>
+
+            <div class="final-score">
+                ${score} / ${questions.length}
+            </div>
+
+            <p class="final-message">
+                You answered ${score} out of
+                ${questions.length} questions correctly.
+                <br>
+                Your accuracy was ${percentage}%.
+            </p>
+
+            <button
+                class="restart"
+                onclick="restartTest()">
+
+                Try Again →
+
+            </button>
+
+            <br>
+
+            <a
+                href="dashboard.html"
+                class="dashboard-btn">
+
+                Go to Dashboard
+
+            </a>
+
+        </div>
+
+    `;
+
+}
+
+
+/* ==========================
+   RESTART
+========================== */
+
+function restartTest() {
+
+    current = 0;
+
+    score = 0;
+
+    timeLeft = 20 * 60;
+
+    document.getElementById("questionCard")
+        .innerHTML = `
+
+        <div
+            class="question-number"
+            id="questionLabel">
+            QUESTION 01
+        </div>
+
+        <div id="question">
+        </div>
+
+        <div id="answers">
+        </div>
+
+        <p id="result">
+        </p>
+
+        <div class="next-area">
+
+            <button
+                id="next"
+                disabled>
+
+                Next →
+
+            </button>
+
+        </div>
+    `;
+
+
+    /* Reconnect elements */
+
+    window.question =
+        document.getElementById("question");
+
+    window.answers =
+        document.getElementById("answers");
+
+    window.label =
+        document.getElementById("questionLabel");
+
+    window.result =
+        document.getElementById("result");
+
+    window.next =
+        document.getElementById("next");
+
+
+    next.onclick = () => {
+
+        current++;
+
+        if(current < questions.length) {
+
+            showQuestion();
+
+        } else {
+
+            finishTest();
+
+        }
+
+    };
+
+
+    showQuestion();
+
+    startTimer();
+
+}
+
+
+/* ==========================
+   TIMER
+========================== */
+
+function updateTimer() {
+
+    const minutes =
+        Math.floor(timeLeft / 60);
+
+    const seconds =
+        timeLeft % 60;
+
+    timer.textContent =
+        String(minutes).padStart(2,"0")
+        + ":"
+        + String(seconds).padStart(2,"0");
+
+
+    if(timeLeft <= 0) {
+
+        clearInterval(timerInterval);
+
+        finishTest();
+
+        return;
+
+    }
+
+    timeLeft--;
+
+}
+
+
+function startTimer() {
+
+    clearInterval(timerInterval);
+
+    updateTimer();
+
+    timerInterval =
+        setInterval(updateTimer, 1000);
+
+}
+
+
+/* START */
+
+showQuestion();
+
+startTimer();
+
+</script>
+
+</body>
+</html>

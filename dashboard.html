@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduPath | Dashboard</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+
+:root {
+    --ink: #172321;
+    --muted: #60706c;
+    --paper: #f5f3ed;
+    --cream: #fffdf8;
+    --green: #1f5b4e;
+    --mint: #dcebe1;
+    --coral: #ed765d;
+    --line: #d8ded8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* NAV */
+
+nav {
+    max-width: 1180px;
+    margin: auto;
+
+    padding: 22px 32px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--green);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--coral);
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: .88rem;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+.home-btn {
+    background: var(--green);
+    color: white !important;
+    padding: 9px 14px;
+    border-radius: 7px;
+}
+
+
+/* MAIN */
+
+main {
+    max-width: 1180px;
+    margin: auto;
+    padding: 45px 32px 80px;
+}
+
+
+/* WELCOME */
+
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    border-bottom: 1px solid var(--line);
+
+    padding-bottom: 28px;
+}
+
+.eyebrow {
+    color: var(--coral);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+}
+
+h1 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: .95;
+    letter-spacing: -.055em;
+    margin: 12px 0;
+}
+
+.welcome p {
+    color: var(--muted);
+    margin: 0;
+}
+
+
+/* OVERALL SCORE */
+
+.score-box {
+    min-width: 200px;
+
+    padding: 25px;
+
+    background: var(--green);
+    color: white;
+
+    border-radius: 5px 35px 5px 35px;
+}
+
+.score-label {
+    color: #b8d6c5;
+    font-size: .75rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.score {
+    font-family: "Fraunces", serif;
+    font-size: 3.2rem;
+    margin: 5px 0;
+}
+
+
+/* SECTION */
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    margin-top: 42px;
+}
+
+.section-title h2,
+.quick h2 {
+    font-family: "Fraunces", serif;
+    font-size: 2.3rem;
+    letter-spacing: -.05em;
+    margin: 0;
+}
+
+.section-title p {
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+
+/* COURSES */
+
+.courses {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.course {
+    background: var(--cream);
+
+    border: 1px solid var(--line);
+
+    padding: 28px;
+
+    transition: .2s;
+}
+
+.course:hover {
+    transform: translateY(-4px);
+    border-color: var(--coral);
+}
+
+.course-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.course-icon {
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--mint);
+
+    border-radius: 14px;
+
+    font-size: 1.5rem;
+}
+
+.course-tag {
+    color: var(--coral);
+
+    font-size: .7rem;
+
+    font-weight: 700;
+
+    letter-spacing: .1em;
+}
+
+.course h3 {
+    font-size: 1.4rem;
+    margin: 25px 0 7px;
+}
+
+.course p {
+    color: var(--muted);
+    font-size: .88rem;
+    line-height: 1.5;
+}
+
+
+/* PROGRESS */
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    font-size: .8rem;
+}
+
+.progress-info span:last-child {
+    color: var(--green);
+    font-weight: 700;
+}
+
+.progress-bar {
+    height: 9px;
+
+    margin-top: 8px;
+
+    background: var(--mint);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+
+    background: var(--green);
+
+    border-radius: inherit;
+
+    transition: width .5s;
+}
+
+
+/* SAT RESULT */
+
+.sat-result {
+    margin-top: 18px;
+
+    padding: 12px 15px;
+
+    background: var(--mint);
+
+    border-radius: 8px;
+
+    color: var(--green);
+
+    font-size: .85rem;
+
+    font-weight: 600;
+}
+
+
+/* BUTTON */
+
+.continue {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: var(--green);
+
+    font-size: .88rem;
+
+    font-weight: 700;
+}
+
+.continue:hover {
+    color: var(--coral);
+}
+
+
+/* QUICK */
+
+.quick {
+    margin-top: 45px;
+}
+
+.quick h2 {
+    margin-bottom: 20px;
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.action {
+    background: white;
+
+    border: 1px solid var(--line);
+
+    padding: 22px;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+.action:hover {
+    background: var(--mint);
+    transform: translateY(-3px);
+}
+
+.action span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 1.5rem;
+}
+
+.action small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-weight: 400;
+}
+
+
+/* FOOTER */
+
+footer {
+    max-width: 1180px;
+    margin: auto;
+
+    padding: 25px 32px 35px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-size: .8rem;
+}
+
+.status {
+    color: var(--green);
+}
+
+.status::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: #5baa71;
+}
+
+
+/* MOBILE */
+
+@media(max-width:760px) {
+
+    nav {
+        padding: 20px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: .72rem;
+    }
+
+    main {
+        padding: 30px 20px 60px;
+    }
+
+    .welcome {
+        display: block;
+    }
+
+    .score-box {
+        margin-top: 25px;
+    }
+
+    .courses {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        display: block;
+    }
+
+    .section-title p {
+        margin-top: 8px;
+    }
+
+    footer {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<nav>
+
+<a href="index.html" class="logo">
+Edu<span>Path</span>
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="ielts.html">
+IELTS
+</a>
+
+<a href="sat.html">
+SAT
+</a>
+
+<a href="index.html#pathways" class="home-btn">
+Explore
+</a>
+
+</div>
+
+</nav>
+
+
+<main>
+
+
+<!-- WELCOME -->
+
+<section class="welcome">
+
+<div>
+
+<div class="eyebrow">
+Your learning space
+</div>
+
+<h1>
+Your Dashboard.
+</h1>
+
+<p>
+Keep moving. Every small step gets you closer.
+</p>
+
+</div>
+
+
+<div class="score-box">
+
+<div class="score-label">
+Overall progress
+</div>
+
+<div
+class="score"
+id="overallScore">
+0%
+</div>
+
+<small>
+Keep going 🚀
+</small>
+
+</div>
+
+</section>
+
+
+<!-- PREPARATION -->
+
+<section>
+
+<div class="section-title">
+
+<h2>
+Your preparation
+</h2>
+
+<p>
+Track your progress
+</p>
+
+</div>
+
+
+<div class="courses">
+
+
+<!-- IELTS -->
+
+<article class="course">
+
+<div class="course-top">
+
+<div class="course-icon">
+🇬🇧
+</div>
+
+<div class="course-tag">
+ENGLISH
+</div>
+
+</div>
+
+<h3>
+IELTS Preparation
+</h3>
+
+<p>
+Improve your Reading, Listening,
+Writing and Speaking skills.
+</p>
+
+
+<div class="progress-info">
+
+<span>
+Progress
+</span>
+
+<span>
+65%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+style="width:65%">
+</div>
+
+</div>
+
+
+<a
+href="ielts.html"
+class="continue">
+
+Continue IELTS →
+
+</a>
+
+</article>
+
+
+<!-- SAT -->
+
+<article class="course">
+
+<div class="course-top">
+
+<div class="course-icon">
+📝
+</div>
+
+<div class="course-tag">
+ADMISSIONS
+</div>
+
+</div>
+
+<h3>
+SAT Preparation
+</h3>
+
+<p>
+Practice Math and Reading & Writing
+and track your test performance.
+</p>
+
+
+<div class="progress-info">
+
+<span>
+Latest result
+</span>
+
+<span id="satPercent">
+Not taken
+</span>
+
+</div>
+
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="satProgress"
+style="width:0%">
+</div>
+
+</div>
+
+
+<div
+class="sat-result"
+id="satResult">
+
+You haven't completed a SAT test yet.
+
+</div>
+
+
+<a
+href="sat.html"
+class="continue">
+
+Take SAT →
+
+</a>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- QUICK ACTIONS -->
+
+<section class="quick">
+
+<h2>
+Quick actions.
+</h2>
+
+
+<div class="actions">
+
+
+<a
+href="ielts.html"
+class="action">
+
+<span>📖</span>
+
+IELTS Practice
+
+<small>
+Continue your English preparation.
+</small>
+
+</a>
+
+
+<a
+href="sat.html"
+class="action">
+
+<span>🎯</span>
+
+SAT Practice
+
+<small>
+Take your next SAT questions.
+</small>
+
+</a>
+
+
+<a
+href="index.html"
+class="action">
+
+<span>🏠</span>
+
+Back to Home
+
+<small>
+Explore the EduPath roadmap.
+</small>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<span>
+© 2026 EduPath
+</span>
+
+<span class="status">
+Your future is in progress
+</span>
+
+</footer>
+
+
+<script>
+
+
+/* ==============================
+   GET SAT RESULT
+============================== */
+
+const satScore =
+localStorage.getItem("edupath-sat-score");
+
+const satPercentage =
+localStorage.getItem("edupath-sat-percentage");
+
+
+const satPercent =
+document.getElementById("satPercent");
+
+const satProgress =
+document.getElementById("satProgress");
+
+const satResult =
+document.getElementById("satResult");
+
+const overallScore =
+document.getElementById("overallScore");
+
+
+if (
+    satScore !== null &&
+    satPercentage !== null
+) {
+
+    satPercent.textContent =
+        satPercentage + "%";
+
+    satProgress.style.width =
+        satPercentage + "%";
+
+    satResult.textContent =
+        "Latest SAT result: "
+        + satScore
+        + " / 40 questions correct.";
+
+    overallScore.textContent =
+        satPercentage + "%";
+
+} else {
+
+    satPercent.textContent =
+        "Not taken";
+
+    satResult.textContent =
+        "You haven't completed a SAT test yet.";
+
+    overallScore.textContent =
+        "0%";
+
+}
+
+</script>
+
+
+</body>
+</html>

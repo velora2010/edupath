@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>EduPath | IELTS Reading</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+
+:root {
+    --ink: #172321;
+    --muted: #60706c;
+    --paper: #f5f3ed;
+    --cream: #fffdf8;
+    --green: #1f5b4e;
+    --mint: #dcebe1;
+    --coral: #ed765d;
+    --line: #d8ded8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    max-width: 1180px;
+    margin: auto;
+
+    padding: 22px 32px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--green);
+
+    font-size: 1.3rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--coral);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--muted);
+
+    font-size: .88rem;
+
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+
+/* MAIN */
+
+main {
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding: 45px 32px 80px;
+}
+
+
+/* HEADER */
+
+.header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    border-bottom: 1px solid var(--line);
+
+    padding-bottom: 25px;
+
+    margin-bottom: 25px;
+}
+
+.eyebrow {
+    color: var(--coral);
+
+    font-size: .73rem;
+
+    font-weight: 700;
+
+    letter-spacing: .14em;
+
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: "Fraunces", serif;
+
+    font-size: 3.5rem;
+
+    letter-spacing: -.055em;
+
+    margin: 10px 0;
+}
+
+.header p {
+    color: var(--muted);
+
+    margin: 0;
+}
+
+.timer {
+    background: var(--green);
+
+    color: white;
+
+    padding: 13px 18px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+}
+
+
+/* READING AREA */
+
+.reading-area {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* PASSAGE */
+
+.passage {
+    background: var(--cream);
+
+    border: 1px solid var(--line);
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    line-height: 1.7;
+}
+
+.passage h2 {
+    font-family: "Fraunces", serif;
+
+    margin-top: 0;
+
+    font-size: 1.8rem;
+}
+
+.passage p {
+    color: #3e4d49;
+
+    font-size: .95rem;
+}
+
+
+/* QUESTIONS */
+
+.questions {
+    background: white;
+
+    border: 1px solid var(--line);
+
+    padding: 30px;
+
+    border-radius: 12px;
+}
+
+.questions h2 {
+    font-family: "Fraunces", serif;
+
+    margin-top: 0;
+}
+
+.question {
+    padding: 18px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.question:last-child {
+    border-bottom: none;
+}
+
+.question p {
+    font-weight: 600;
+
+    line-height: 1.5;
+}
+
+label {
+    display: block;
+
+    margin: 8px 0;
+
+    padding: 11px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: .9rem;
+}
+
+label:hover {
+    background: var(--mint);
+
+    border-color: var(--green);
+}
+
+input {
+    margin-right: 8px;
+}
+
+
+/* SUBMIT */
+
+.submit-area {
+    text-align: center;
+
+    margin-top: 25px;
+}
+
+button {
+    border: none;
+
+    background: var(--green);
+
+    color: white;
+
+    padding: 14px 25px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16473d;
+}
+
+
+/* RESULT */
+
+#result {
+    margin-top: 20px;
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* MOBILE */
+
+@media(max-width:760px) {
+
+    nav {
+        padding: 20px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: .72rem;
+    }
+
+    main {
+        padding: 30px 20px 60px;
+    }
+
+    .header {
+        display: block;
+    }
+
+    .timer {
+        display: inline-block;
+
+        margin-top: 15px;
+    }
+
+    h1 {
+        font-size: 2.7rem;
+    }
+
+    .reading-area {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+<a href="index.html" class="logo">
+Edu<span>Path</span>
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="ielts.html">
+IELTS
+</a>
+
+<a href="sat.html">
+SAT
+</a>
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+</div>
+
+</nav>
+
+
+<main>
+
+
+<div class="header">
+
+<div>
+
+<div class="eyebrow">
+IELTS / READING
+</div>
+
+<h1>
+Reading Practice
+</h1>
+
+<p>
+Read the passage and answer the questions.
+</p>
+
+</div>
+
+<div
+class="timer"
+id="timer">
+
+15:00
+
+</div>
+
+</div>
+
+
+<div class="reading-area">
+
+
+<!-- PASSAGE -->
+
+<article class="passage">
+
+<h2>
+The Changing World of Urban Parks
+</h2>
+
+<p>
+Urban parks have played an important role in
+cities for hundreds of years. Originally, many
+public green spaces were designed simply to
+provide residents with a place to walk and
+relax away from crowded streets.
+</p>
+
+<p>
+Today, however, the role of urban parks is
+changing. City planners increasingly see green
+spaces as an important part of a healthy urban
+environment. Trees can help reduce temperatures
+during hot weather, while plants can improve
+air quality and provide habitats for birds and
+other animals.
+</p>
+
+<p>
+Modern parks are also being designed for a
+wider range of activities. Some include sports
+facilities, outdoor libraries, community gardens
+and spaces where people can work or study.
+These developments reflect the idea that parks
+should serve different groups within a city.
+</p>
+
+<p>
+Despite these benefits, creating and maintaining
+urban parks can be expensive. Land in large
+cities is often valuable, and governments must
+balance the need for housing, transport and
+green spaces. For this reason, some cities are
+experimenting with smaller parks and gardens
+built on unused areas of land.
+</p>
+
+</article>
+
+
+<!-- QUESTIONS -->
+
+<section class="questions">
+
+<h2>
+Questions
+</h2>
+
+
+<div class="question">
+
+<p>
+1. Why were many early urban parks created?
+</p>
+
+<label>
+<input type="radio" name="q1" value="A">
+A) To provide places for factories
+</label>
+
+<label>
+<input type="radio" name="q1" value="B">
+B) To give people a place to relax
+</label>
+
+<label>
+<input type="radio" name="q1" value="C">
+C) To increase housing
+</label>
+
+<label>
+<input type="radio" name="q1" value="D">
+D) To protect roads
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>
+2. What can trees help reduce?
+</p>
+
+<label>
+<input type="radio" name="q2" value="A">
+A) City temperatures
+</label>
+
+<label>
+<input type="radio" name="q2" value="B">
+B) Housing prices
+</label>
+
+<label>
+<input type="radio" name="q2" value="C">
+C) Public transport
+</label>
+
+<label>
+<input type="radio" name="q2" value="D">
+D) Population
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>
+3. Which activity is mentioned as a modern
+use of parks?
+</p>
+
+<label>
+<input type="radio" name="q3" value="A">
+A) Driving
+</label>
+
+<label>
+<input type="radio" name="q3" value="B">
+B) Outdoor studying
+</label>
+
+<label>
+<input type="radio" name="q3" value="C">
+C) Building factories
+</label>
+
+<label>
+<input type="radio" name="q3" value="D">
+D) Shopping
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>
+4. Why can creating parks be difficult?
+</p>
+
+<label>
+<input type="radio" name="q4" value="A">
+A) Parks are unpopular
+</label>
+
+<label>
+<input type="radio" name="q4" value="B">
+B) Cities have too many trees
+</label>
+
+<label>
+<input type="radio" name="q4" value="C">
+C) Land can be expensive
+</label>
+
+<label>
+<input type="radio" name="q4" value="D">
+D) People dislike gardens
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>
+5. What are some cities experimenting with?
+</p>
+
+<label>
+<input type="radio" name="q5" value="A">
+A) Smaller parks
+</label>
+
+<label>
+<input type="radio" name="q5" value="B">
+B) Larger highways
+</label>
+
+<label>
+<input type="radio" name="q5" value="C">
+C) Underground factories
+</label>
+
+<label>
+<input type="radio" name="q5" value="D">
+D) Private airports
+</label>
+
+</div>
+
+
+<div class="submit-area">
+
+<button onclick="checkAnswers()">
+Submit Answers →
+</button>
+
+</div>
+
+
+<div id="result"></div>
+
+</section>
+
+</div>
+
+</main>
+
+
+<script>
+
+
+/* ANSWERS */
+
+const correctAnswers = {
+
+q1: "B",
+q2: "A",
+q3: "B",
+q4: "C",
+q5: "A"
+
+};
+
+
+/* CHECK ANSWERS */
+
+function checkAnswers() {
+
+    let score = 0;
+
+    for (let q in correctAnswers) {
+
+        const selected =
+            document.querySelector(
+                'input[name="' + q + '"]:checked'
+            );
+
+        if (
+            selected &&
+            selected.value === correctAnswers[q]
+        ) {
+
+            score++;
+
+        }
+
+    }
+
+
+    const percentage =
+        Math.round(score / 5 * 100);
+
+
+    document.getElementById("result")
+        .textContent =
+        "Your score: "
+        + score
+        + " / 5 — "
+        + percentage
+        + "% 🎯";
+
+
+    /* SAVE IELTS READING RESULT */
+
+    localStorage.setItem(
+        "edupath-reading-score",
+        score
+    );
+
+    localStorage.setItem(
+        "edupath-reading-percentage",
+        percentage
+    );
+
+}
+
+
+/* TIMER */
+
+let time = 15 * 60;
+
+const timer =
+document.getElementById("timer");
+
+
+const interval =
+setInterval(function() {
+
+    let minutes =
+        Math.floor(time / 60);
+
+    let seconds =
+        time % 60;
+
+
+    timer.textContent =
+        String(minutes).padStart(2,"0")
+        + ":"
+        + String(seconds).padStart(2,"0");
+
+
+    if (time <= 0) {
+
+        clearInterval(interval);
+
+        checkAnswers();
+
+        timer.textContent =
+            "Finished";
+
+    }
+
+
+    time--;
+
+}, 1000);
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="EduPath helps ambitious students navigate the journey to their dream university.">
+
+<title>EduPath | Your route to a dream university</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+
+:root {
+    --ink: #172321;
+    --muted: #60706c;
+    --paper: #f5f3ed;
+    --cream: #fffdf8;
+    --green: #1f5b4e;
+    --mint: #dcebe1;
+    --coral: #ed765d;
+    --line: #d8ded8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: 'DM Sans', sans-serif;
+}
+
+
+/* NAVIGATION */
+
+nav,
+main,
+footer {
+    max-width: 1180px;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 32px;
+}
+
+.brand {
+    color: var(--green);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    text-decoration: none;
+}
+
+.brand span {
+    color: var(--coral);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-link {
+    color: var(--muted);
+    font-size: .88rem;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--ink);
+}
+
+.dashboard-link {
+    color: white;
+    background: var(--green);
+    padding: 9px 13px;
+    border-radius: 7px;
+    font-weight: 600;
+}
+
+.dashboard-link:hover {
+    color: white;
+    background: #16473d;
+}
+
+
+/* HERO */
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+
+    gap: 76px;
+
+    align-items: center;
+
+    padding: 84px 32px 90px;
+}
+
+.eyebrow {
+    color: var(--coral);
+
+    font-size: .74rem;
+
+    font-weight: 700;
+
+    letter-spacing: .14em;
+
+    text-transform: uppercase;
+}
+
+h1,
+h2 {
+    font-family: 'Fraunces', serif;
+
+    font-weight: 600;
+
+    letter-spacing: -.055em;
+}
+
+h1 {
+    max-width: 690px;
+
+    margin: 18px 0 22px;
+
+    font-size: clamp(3.5rem, 7vw, 6.4rem);
+
+    line-height: .94;
+}
+
+h1 em {
+    color: var(--green);
+
+    font-style: normal;
+}
+
+.intro {
+    max-width: 480px;
+
+    color: var(--muted);
+
+    font-size: 1.05rem;
+
+    line-height: 1.65;
+}
+
+.hero-actions {
+    display: flex;
+
+    gap: 14px;
+
+    margin-top: 34px;
+}
+
+.primary,
+.secondary {
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font: inherit;
+
+    font-weight: 700;
+
+    padding: 14px 19px;
+
+    text-decoration: none;
+}
+
+.primary {
+    color: #fff;
+
+    background: var(--green);
+
+    border: 0;
+}
+
+.primary:hover {
+    background: #16473d;
+}
+
+.secondary {
+    color: var(--green);
+
+    background: transparent;
+
+    border: 1px solid var(--green);
+}
+
+.secondary:hover {
+    background: var(--mint);
+}
+
+
+/* ROUTE MAP */
+
+.route-map {
+    position: relative;
+
+    min-height: 390px;
+
+    padding: 28px;
+
+    overflow: hidden;
+
+    background: var(--green);
+
+    color: #fff;
+
+    border-radius: 2px 70px 2px 70px;
+}
+
+.route-map::before,
+.route-map::after {
+    position: absolute;
+
+    content: '';
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    border-radius: 50%;
+}
+
+.route-map::before {
+    width: 300px;
+    height: 300px;
+
+    right: -100px;
+    top: -90px;
+}
+
+.route-map::after {
+    width: 420px;
+    height: 420px;
+
+    right: -160px;
+    top: -150px;
+}
+
+.map-label {
+    position: relative;
+
+    z-index: 1;
+
+    color: #b8d6c5;
+
+    font-size: .75rem;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+}
+
+.route-line {
+    position: absolute;
+
+    z-index: 1;
+
+    left: 59px;
+    top: 92px;
+
+    width: 2px;
+    height: 230px;
+
+    background: #c6dfcf;
+
+    transform: rotate(24deg);
+
+    transform-origin: top;
+}
+
+.milestone {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    gap: 17px;
+
+    align-items: center;
+
+    margin-top: 43px;
+}
+
+.milestone:first-of-type {
+    margin-top: 48px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+
+    flex: 0 0 15px;
+
+    border: 4px solid var(--green);
+
+    border-radius: 50%;
+
+    background: var(--coral);
+
+    box-shadow: 0 0 0 1px #c6dfcf;
+}
+
+.milestone strong {
+    display: block;
+
+    font-size: 1.05rem;
+}
+
+.milestone small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #b8d6c5;
+}
+
+.map-stamp {
+    position: absolute;
+
+    right: 30px;
+    bottom: 28px;
+
+    display: grid;
+
+    width: 92px;
+    height: 92px;
+
+    place-items: center;
+
+    border: 1px solid #c6dfcf;
+
+    border-radius: 50%;
+
+    color: #c6dfcf;
+
+    font-family: 'Fraunces', serif;
+
+    font-size: 1.15rem;
+
+    line-height: .95;
+
+    text-align: center;
+
+    transform: rotate(-12deg);
+}
+
+
+/* PATHWAYS */
+
+.pathways {
+    padding: 18px 32px 84px;
+}
+
+.section-head {
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--line);
+
+    padding-bottom: 18px;
+}
+
+h2 {
+    margin: 0;
+
+    font-size: 2.6rem;
+}
+
+.section-head p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: .9rem;
+}
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 26px;
+}
+
+.path-card {
+    min-height: 245px;
+
+    padding: 25px;
+
+    background: var(--cream);
+
+    border: 1px solid var(--line);
+
+    transition: transform .2s ease, border-color .2s ease;
+}
+
+.path-card:hover {
+    border-color: var(--coral);
+
+    transform: translateY(-4px);
+}
+
+.card-number {
+    color: var(--coral);
+
+    font-size: .77rem;
+
+    font-weight: 700;
+}
+
+.path-card h3 {
+    margin: 28px 0 8px;
+
+    font-size: 1.2rem;
+}
+
+.path-card p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: .9rem;
+
+    line-height: 1.5;
+}
+
+.card-link {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: var(--green);
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.card-link:hover {
+    color: var(--coral);
+}
+
+
+/* FOOTER */
+
+footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 25px 32px 34px;
+
+    color: var(--muted);
+
+    font-size: .8rem;
+}
+
+.status {
+    color: var(--green);
+}
+
+.status::before {
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: #5baa71;
+
+    content: '';
+}
+
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+
+    nav {
+        padding: 22px 20px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: .75rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        gap: 48px;
+
+        padding: 58px 20px 64px;
+    }
+
+    h1 {
+        font-size: clamp(3.35rem, 16vw, 5rem);
+    }
+
+    .route-map {
+        min-height: 350px;
+    }
+
+    .pathways {
+        padding: 10px 20px 60px;
+    }
+
+    .section-head {
+        display: block;
+    }
+
+    .section-head p {
+        margin-top: 9px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        padding: 20px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav aria-label="Main navigation">
+
+<a class="brand" href="index.html">
+Edu<span>Path</span>
+</a>
+
+
+<div class="nav-links">
+
+<a class="nav-link" href="dashboard.html">
+Dashboard
+</a>
+
+<a class="nav-link" href="sat.html">
+SAT
+</a>
+
+<a class="nav-link" href="ielts.html">
+IELTS
+</a>
+
+<a class="nav-link dashboard-link" href="#pathways">
+Explore
+</a>
+
+</div>
+
+</nav>
+
+
+<main id="top">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+
+<div>
+
+<div class="eyebrow">
+Make your next move count
+</div>
+
+
+<h1>
+Your path to a
+<em>dream university.</em>
+</h1>
+
+
+<p class="intro">
+
+A clear, confident way to prepare for the tests,
+find the funding, and build an application that
+feels like you.
+
+</p>
+
+
+<div class="hero-actions">
+
+<a
+class="primary"
+href="#pathways">
+
+Start exploring →
+</a>
+
+
+<a
+class="secondary"
+href="dashboard.html">
+
+My Dashboard
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- ROUTE MAP -->
+
+<aside
+class="route-map"
+aria-label="Three steps to university">
+
+
+<div class="map-label">
+The EduPath route
+</div>
+
+
+<div
+class="route-line"
+aria-hidden="true">
+</div>
+
+
+<div class="milestone">
+
+<div class="dot"></div>
+
+<div>
+
+<strong>
+Prepare
+</strong>
+
+<small>
+Know what the tests ask.
+</small>
+
+</div>
+
+</div>
+
+
+<div class="milestone">
+
+<div class="dot"></div>
+
+<div>
+
+<strong>
+Discover
+</strong>
+
+<small>
+Find a place that fits.
+</small>
+
+</div>
+
+</div>
+
+
+<div class="milestone">
+
+<div class="dot"></div>
+
+<div>
+
+<strong>
+Arrive
+</strong>
+
+<small>
+Make the opportunity yours.
+</small>
+
+</div>
+
+</div>
+
+
+<div class="map-stamp">
+
+one<br>
+step<br>
+at a time
+
+</div>
+
+
+</aside>
+
+</section>
+
+
+<!-- PATHWAYS -->
+
+<section
+class="pathways"
+id="pathways">
+
+
+<div class="section-head">
+
+<h2>
+Choose your starting point.
+</h2>
+
+<p>
+Small steps. Serious momentum.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<!-- IELTS -->
+
+<article class="path-card">
+
+<div class="card-number">
+01 / PREPARE
+</div>
+
+<h3>
+IELTS
+</h3>
+
+<p>
+Build the language skills and test-day
+confidence to open more doors.
+</p>
+
+<a
+href="ielts.html"
+class="card-link">
+
+Start IELTS →
+
+</a>
+
+</article>
+
+
+<!-- SAT -->
+
+<article class="path-card">
+
+<div class="card-number">
+02 / PREPARE
+</div>
+
+<h3>
+SAT
+</h3>
+
+<p>
+Turn a big score goal into a study plan
+you can actually stick with.
+</p>
+
+<a
+href="sat.html"
+class="card-link">
+
+Start SAT →
+
+</a>
+
+</article>
+
+
+<!-- SCHOLARSHIPS -->
+
+<article class="path-card">
+
+<div class="card-number">
+03 / FUND
+</div>
+
+<h3>
+Scholarships
+</h3>
+
+<p>
+Find funding opportunities that match
+your ambition and your story.
+</p>
+
+<a
+href="#"
+class="card-link"
+onclick="scholarshipMessage(event)">
+
+Explore scholarships →
+
+</a>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<span>
+© 2026 EduPath
+</span>
+
+<span class="status">
+Your future is in progress
+</span>
+
+</footer>
+
+
+<script>
+
+function scholarshipMessage(event) {
+
+event.preventDefault();
+
+alert(
+"Scholarship Explorer is coming next! 🎓"
+);
+
+}
+
+</script>
+
+
+</body>
+</html>
